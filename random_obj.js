@@ -26,5 +26,4 @@ function generatePeopleArray(n) {
     return result;
    
 }
-console.log(generatePeopleArray(100));
 
