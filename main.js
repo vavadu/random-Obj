@@ -31,5 +31,5 @@ function ready(callbackFunction){
   }
   ready(event => {
     // console.log('DOM is ready.')
-    console.log(showPeople());
+    
   })
