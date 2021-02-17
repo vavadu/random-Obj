@@ -2,18 +2,18 @@
 
 function showPeople(event) {
     event.preventDefault();
-
-    let arr = generatePeopleArray(3);
+    let n = 10;
+    let arr = generatePeopleArray(n);
     
-    let n = 3;
-    for (i = 0; i < n; i++) {
-        let person = arr[i]
-        const LI_ELEMENT = document.createElement('li');
-        LI_ELEMENT.id = "li";
-        LI_ELEMENT.textContent = `${person.firstname} ${person.lastname} ${person.age} ${person.sex}`;
-        LI_ELEMENT.className = "active";
-        document.querySelector('.list').appendChild(LI_ELEMENT)
-    }        
+    
+    arr.forEach ( function(element) {
+        let person = element; 
+        const liElement = document.createElement('li');
+        liElement.id = "li"+ arr.indexOf(element);
+        liElement.textContent = `${person.firstname} ${person.lastname} ${person.age} ${person.sex}`;
+        liElement.className = "active";
+        document.querySelector('.list').appendChild(liElement)
+    });        
     
     event.target.reset();
 
@@ -22,3 +22,14 @@ function showPeople(event) {
 
 const FORM = document.getElementById('form')
 FORM.addEventListener('submit', showPeople)
+
+function ready(callbackFunction){
+    if(document.readyState != 'loading')
+      callbackFunction(event)
+    else
+      document.addEventListener("DOMContentLoaded", callbackFunction)
+  }
+  ready(event => {
+    // console.log('DOM is ready.')
+    console.log(showPeople());
+  })
