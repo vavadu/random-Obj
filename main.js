@@ -5,14 +5,25 @@ function showPeople(event) {
 
     let n = getRandomNumber(20);
     let arr = generatePeopleArray(n);
+
     
-    const container = document.querySelector('.list');
-    arr.forEach ( function(person, i) {
-        const liElement = document.createElement('li');
-        liElement.id = "li"+ i;
-        liElement.textContent = `${person.firstname} ${person.lastname} ${person.age} ${person.sex}`;
-        container.appendChild(liElement)
-    });        
+    const container = document.querySelector('#person-container');
+    container.innerHTML = '';
+
+    arr.forEach ( function(person, i) {   
+
+        const trElement = document.createElement('tr');
+        trElement.id = "person-container";
+
+
+        createElementTh(trElement, person.firstname);
+        createElementTh(trElement, person.lastname);
+        createElementTh(trElement, person.age);
+        createElementTh(trElement, person.sex);
+        
+        container.appendChild(trElement)
+        trElement.className = "active";
+    });  
 }
 
 function ready(callbackFunction){
@@ -26,3 +37,9 @@ ready(() => {
     const form = document.getElementById('form');
     form.addEventListener('submit', showPeople);
 });
+
+function createElementTh(trElement, value) {
+    var nameElement = document.createElement('th');
+    nameElement.textContent = value;
+    trElement.appendChild(nameElement)
+}
