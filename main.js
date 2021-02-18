@@ -39,7 +39,7 @@ ready(() => {
 });
 
 function createElementTh(trElement, value) {
-    var nameElement = document.createElement('th');
+    var nameElement = document.createElement('td');
     nameElement.textContent = value;
     trElement.appendChild(nameElement)
 }
