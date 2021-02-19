@@ -106,8 +106,15 @@ body {
     width: 500px;
 }
 
-
-
+/* Сортировка  */
+.sortToMin {
+    padding-left: 30px;
+    cursor: pointer;
+}
+.sortToMax {
+    display: none;
+    cursor: pointer;
+}
 
 
 
