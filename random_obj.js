@@ -20,10 +20,10 @@ function generatePeopleArray(n) {
             age: getRandomNumber(100),
             sex: getRandomItem(SEX),      
         };
-
+        
         result.push(person); 
+        result.sort((prev, next) =>next.age - prev.age);
     }
     return result;
-   
+    
 }
-
